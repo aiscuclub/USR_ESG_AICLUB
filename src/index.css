@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+/* Fonts loaded via <link> in index.html */
 
 @tailwind base;
 @tailwind components;
@@ -14,11 +14,15 @@
   }
 
   body {
-    font-family: 'Inter', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+    font-family: var(--f-sans);
     -webkit-font-smoothing: antialiased;
     background-color: #FAF8F5;
     color: #1a1a1a;
     overflow-x: hidden;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--f-serif);
   }
 }
 
@@ -33,6 +37,11 @@
   --color-accent: #F5C542;
   --color-bg-warm: #FAF8F5;
   --color-bg-dark: #0A0A0A;
+
+  /* Font System */
+  --f-serif: 'Noto Serif TC', serif;
+  --f-sans:  'Noto Sans TC', sans-serif;
+  --f-mono:  'DM Mono', monospace;
 
   /* Matte Glass */
   --frosted-bg: rgba(255, 255, 255, 0.82);
@@ -66,7 +75,7 @@
   inset: -20px;
   background-size: cover;
   background-position: center;
-  filter: blur(6px) brightness(0.48) saturate(1.15);
+  filter: blur(3px) brightness(0.65) saturate(1.05);
   transform: scale(1.05);
   transition: opacity 1.2s ease-in-out;
   will-change: opacity;
@@ -126,31 +135,7 @@
   transform: scale(1);
 }
 
-/* Slide from left */
-.scroll-anim-left {
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.scroll-anim-left.is-visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Slide from right */
-.scroll-anim-right {
-  opacity: 0;
-  transform: translateX(50px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.scroll-anim-right.is-visible {
-  opacity: 1;
-  transform: translateX(0);
-}
+/* scroll-anim-left and scroll-anim-right removed — use scroll-anim for unified direction */
 
 /* Stagger delays */
 .stagger-1 { transition-delay: 0.08s; }
@@ -230,15 +215,7 @@
   gap: 1rem;
   justify-content: center;
   margin-bottom: 1rem;
-}
-
-.section-label::before,
-.section-label::after {
-  content: '';
-  height: 1px;
-  width: 3rem;
-  background: currentColor;
-  opacity: 0.3;
+  font-family: var(--f-mono);
 }
 
 /* ============================================

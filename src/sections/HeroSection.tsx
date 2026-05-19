@@ -7,7 +7,6 @@ import { useBackgroundSlider } from '../hooks/useBackgroundSlider'
 gsap.registerPlugin(ScrollTrigger)
 
 const COMPETITION_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSe0_Jry0jSMZXgxY_g9apOG52u-GoWVuzyz3V_uZ7-_oyy9hw/viewform?usp=publish-editor'
-const WORKSHOP_LINK    = 'https://docs.google.com/forms/d/e/1FAIpQLScRj7oLo8hw0mZaUvSKSZssCIQl5dlWntH9i7nRYSGLbpviRA/viewform?usp=publish-editor'
 
 function scrollToSection(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -39,7 +38,9 @@ export default function HeroSection() {
         const { isDesktop, isTablet } = context.conditions as {
           isDesktop: boolean; isTablet: boolean
         }
-        const scaleAmount = isDesktop ? 3.0 : isTablet ? 2.2 : 1.6
+
+        // Subtle scale — parallax feel rather than full zoom
+        const scaleAmount = isDesktop ? 1.08 : isTablet ? 1.06 : 1.04
 
         const tl = gsap.timeline({
           scrollTrigger: {
@@ -53,13 +54,23 @@ export default function HeroSection() {
           },
         })
 
+        // 0–15%: chrome UI fades away
         tl.to([logoRef.current, arrowRef.current], {
           opacity: 0, duration: 0.15, ease: 'power2.in',
         }, 0)
         tl.to(btnRef.current, {
           opacity: 0, y: -6, duration: 0.15, ease: 'power2.in',
         }, 0)
+
+        // Background parallax: bg slightly shrinks as text stays
+        tl.to('.hero-bg-slide.active', {
+          scale: 0.97, ease: 'none', duration: 0.62,
+        }, 0)
+
+        // Text scales up subtly
         tl.fromTo(text, { scale: 1, opacity: 1 }, { scale: scaleAmount, ease: 'none', duration: 0.62 }, 0.10)
+
+        // Fade text out
         tl.to(text, { opacity: 0, ease: 'power1.in', duration: 0.35 }, 0.65)
 
         return () => {
@@ -79,7 +90,7 @@ export default function HeroSection() {
       className="relative w-full overflow-hidden"
       style={{ height: '100vh' }}
     >
-      {/* Background */}
+      {/* Background — lighter overlay */}
       <div className="absolute inset-0 z-0">
         {images.map((src, i) => (
           <div
@@ -88,7 +99,8 @@ export default function HeroSection() {
             style={{ backgroundImage: `url(${src})` }}
           />
         ))}
-        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/55 via-black/40 to-black/65" />
+        {/* Updated gradient: from-black/30 via-black/18 to-black/50 */}
+        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/30 via-black/18 to-black/50" />
       </div>
 
       {/* Content */}
@@ -111,37 +123,36 @@ export default function HeroSection() {
         {/* GSAP scale target */}
         <div ref={textRef} className="hero-scroll-target">
           <div
-            className="section-label text-white/50 text-[0.55rem] tracking-[0.5em] uppercase mb-2 animate-fade-in"
-            style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}
+            className="text-white/50 text-[0.6rem] tracking-[0.3em] mb-2 animate-fade-in"
+            style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards', fontFamily: 'var(--f-mono)' }}
           >
             2026 競賽
           </div>
 
           <h1
-            className="hero-text-shadow text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black
+            className="hero-text-shadow text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold
                        text-white tracking-tight leading-[1.15] mb-3 animate-fade-in-up"
-            style={{ animationDelay: '0.4s', opacity: 0, animationFillMode: 'forwards' }}
+            style={{ animationDelay: '0.4s', opacity: 0, animationFillMode: 'forwards', fontFamily: 'var(--f-serif)' }}
           >
             艋舺商圈
             <br />
-            <span className="font-black bg-gradient-to-r from-emerald-300 to-green-400 bg-clip-text text-transparent">
+            <span className="font-bold bg-gradient-to-r from-emerald-300 to-green-400 bg-clip-text text-transparent">
               ESG 永續消費
             </span>
             <br />
             體驗競賽
           </h1>
 
-          {/* Updated subtitle with dots */}
           <p
             className="hero-text-shadow text-xs sm:text-sm md:text-base text-white/75
-                       max-w-sm md:max-w-lg mx-auto font-medium leading-relaxed animate-fade-in-up"
+                       max-w-sm md:max-w-lg mx-auto leading-relaxed animate-fade-in-up"
             style={{ animationDelay: '0.55s', opacity: 0, animationFillMode: 'forwards' }}
           >
             2026年度主題：在地飲食文化・青銀友善・綠色飲食
           </p>
         </div>
 
-        {/* CTA Buttons — 3 buttons as per updated plan */}
+        {/* CTA — single 立即報名 button only */}
         <div
           ref={btnRef}
           className="mt-7 md:mt-8 flex flex-col sm:flex-row gap-3 items-center animate-fade-in-up"
@@ -149,20 +160,11 @@ export default function HeroSection() {
         >
           <button
             onClick={() => scrollToSection('about')}
-            className="w-full sm:w-auto px-6 py-3 matte-glass-dark text-white font-medium rounded-2xl
+            className="w-full sm:w-auto px-6 py-3 matte-glass-dark text-white rounded-2xl
                        hover:bg-white/12 transition-all hover:scale-105 text-sm"
           >
             了解更多
           </button>
-          <a
-            href={WORKSHOP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto px-6 py-3 bg-white/15 border border-white/30 text-white font-bold rounded-2xl
-                       hover:bg-white/25 transition-all hover:scale-105 text-sm text-center"
-          >
-            報名增能工作坊
-          </a>
           <a
             href={COMPETITION_LINK}
             target="_blank"
@@ -171,7 +173,7 @@ export default function HeroSection() {
                        hover:bg-primary-dark transition-all hover:scale-105
                        shadow-lg shadow-primary/40 text-sm tracking-wide text-center"
           >
-            立即報名競賽
+            立即報名
           </a>
         </div>
       </div>
@@ -182,7 +184,7 @@ export default function HeroSection() {
         className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 animate-bounce-arrow z-10"
       >
         <div className="flex flex-col items-center gap-1.5 text-white/35">
-          <span className="text-[0.5rem] tracking-widest uppercase">Scroll</span>
+          <span className="text-[0.5rem] tracking-widest uppercase" style={{ fontFamily: 'var(--f-mono)' }}>Scroll</span>
           <ChevronDown className="w-4 h-4" />
         </div>
       </div>

@@ -13,14 +13,14 @@ export default function RulesSection() {
     <section id="rules" className="py-20 md:py-32 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
-          <div className="section-label text-primary/60 text-xs tracking-[0.4em] uppercase scroll-anim mb-4">
-            Competition Rules
+          <div className="section-label text-primary/60 text-xs tracking-[0.15em] scroll-anim mb-4">
+            05 / 競賽辦法
           </div>
           <AnimatedTitle
             text="競賽辦法"
             highlight="辦法"
             highlightClass="text-primary"
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight"
           />
           <p className="mt-6 text-gray-500 max-w-xl mx-auto scroll-anim font-medium">
             了解參賽資格、競賽流程與評分標準

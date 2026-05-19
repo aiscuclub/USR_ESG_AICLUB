@@ -72,7 +72,7 @@ export default function Header() {
                   alt="艋舺ESG競賽"
                   className="h-9 w-9 rounded-full object-cover"
                 />
-                <span className="hidden sm:block text-sm font-bold text-gray-800 tracking-wide">
+                <span className="hidden sm:block text-sm font-bold text-gray-800 tracking-wide" style={{ fontFamily: 'var(--f-serif)' }}>
                   艋舺ESG競賽
                 </span>
               </button>
@@ -83,7 +83,7 @@ export default function Header() {
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item.id)}
-                    className="px-3 py-2 text-sm font-semibold text-gray-600 hover:text-primary
+                    className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-primary
                                transition-colors rounded-xl hover:bg-primary/6 tracking-wide"
                   >
                     {item.label}

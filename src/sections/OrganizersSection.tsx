@@ -34,14 +34,14 @@ export default function OrganizersSection() {
     <section id="organizers" className="py-20 md:py-32 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
-          <div className="section-label text-gray-400 text-xs tracking-[0.4em] uppercase scroll-anim mb-4">
-            Organizers
+          <div className="section-label text-gray-400 text-xs tracking-[0.15em] scroll-anim mb-4">
+            06 / 主辦單位
           </div>
           <AnimatedTitle
             text="主辦與協辦單位"
             highlight="協辦單位"
             highlightClass="text-primary"
-            className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight"
           />
           <p className="mt-6 text-gray-500 max-w-xl mx-auto scroll-anim font-medium">
             感謝各單位的支持與協助，共同推動艋舺商圈永續發展

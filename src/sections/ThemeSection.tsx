@@ -66,14 +66,14 @@ export default function ThemeSection() {
 
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="section-label text-primary/60 text-xs tracking-[0.4em] uppercase scroll-anim mb-4">
-            Theme
+          <div className="section-label text-primary/60 text-xs tracking-[0.15em] scroll-anim mb-4">
+            02 / 競賽主題
           </div>
           <AnimatedTitle
             text="競賽主題"
             highlight="主題"
             highlightClass="text-primary"
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight"
           />
         </div>
 
