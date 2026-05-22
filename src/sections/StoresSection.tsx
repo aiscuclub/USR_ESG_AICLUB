@@ -9,6 +9,33 @@ const PLACEHOLDER = '/aiclubusrwebsite/images/placeholder-store.jpg'
 function PhotoCarousel({ photos, name }: { photos: string[]; name: string }) {
   const [idx, setIdx] = useState(0)
 
+  // 如果沒有照片，直接顯示單張 placeholder
+  if (!photos || photos.length === 0) {
+    return (
+      <div className="relative w-full aspect-video bg-gray-100 rounded-2xl overflow-hidden select-none">
+        <img
+          src={PLACEHOLDER}
+          alt={`${name} 暫無照片`}
+          className="w-full h-full object-cover"
+        />
+      </div>
+    )
+  }
+
+  // 如果只有 1 張照片，顯示單張照片（無互動按鈕）
+  if (photos.length === 1) {
+    return (
+      <div className="relative w-full aspect-video bg-gray-100 rounded-2xl overflow-hidden select-none">
+        <img
+          src={photos[0]}
+          alt={`${name} 照片`}
+          className="w-full h-full object-cover"
+          onError={(e) => { (e.target as HTMLImageElement).src = PLACEHOLDER }}
+        />
+      </div>
+    )
+  }
+
   const prev = () => setIdx((i) => (i - 1 + photos.length) % photos.length)
   const next = () => setIdx((i) => (i + 1) % photos.length)
 
@@ -60,6 +87,7 @@ function PhotoCarousel({ photos, name }: { photos: string[]; name: string }) {
     </div>
   )
 }
+
 
 // ── 店家 Modal ────────────────────────────────────────────
 function StoreModal({ store, onClose }: { store: Store; onClose: () => void }) {
@@ -180,7 +208,7 @@ function StoreCard({ store, index, onClick }: { store: Store; index: number; onC
       {/* 縮圖 */}
       <div className="relative aspect-video bg-gray-100 overflow-hidden">
         <img
-          src={store.photos[0]}
+          src={store.photos[0] || PLACEHOLDER}
           alt={store.name}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           onError={(e) => { (e.target as HTMLImageElement).src = PLACEHOLDER }}

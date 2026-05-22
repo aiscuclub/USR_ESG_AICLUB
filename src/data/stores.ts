@@ -30,9 +30,11 @@ export interface Store {
 const BASE = '/aiclubusrwebsite/images/stores'
 const PLACEHOLDER = '/aiclubusrwebsite/images/placeholder-store.jpg'
 
-function storePhotos(id: string): string[] {
-  return [1, 2, 3, 4, 5].map((n) => `${BASE}/${id}/photo-${n}.jpg`)
+function storePhotos(id: string, count: number = 5): string[] {
+  if (count === 0) return []
+  return Array.from({ length: count }, (_, i) => `${BASE}/${id}/photo-${i + 1}.jpg`)
 }
+
 
 function storeLogo(id: string): string {
   return `${BASE}/${id}/logo.jpg`
@@ -49,7 +51,7 @@ export const STORES_DATA: Store[] = [
     address: '台北市萬華區和平西路三段120號（龍山商場1F）',
     specialties: ['炸雞腿', '古早味炸排骨', '紅燒牛腩', '馬頭魚便當', '滷肉飯'],
     logo: storeLogo('zhongyi'),
-    photos: storePhotos('zhongyi'),
+    photos: storePhotos('zhongyi', 5),
   },
   {
     id: 'chuanye',
@@ -61,7 +63,7 @@ export const STORES_DATA: Store[] = [
     address: '台北市萬華區',
     specialties: ['手工肉圓', '特調醬汁肉圓', '清蒸肉圓', '綜合小菜'],
     logo: storeLogo('chuanye'),
-    photos: storePhotos('chuanye'),
+    photos: storePhotos('chuanye', 5),
   },
   {
     id: 'erhe',
@@ -73,7 +75,7 @@ export const STORES_DATA: Store[] = [
     address: '台北市萬華區',
     specialties: ['傳統漢餅', '手工鳳梨酥', '綠豆糕', '喜餅禮盒', '中秋月餅'],
     logo: storeLogo('erhe'),
-    photos: storePhotos('erhe'),
+    photos: storePhotos('erhe', 0),
   },
   {
     id: 'yunshui',
@@ -85,7 +87,7 @@ export const STORES_DATA: Store[] = [
     address: '台北市萬華區',
     specialties: ['時令蔬食定食', '在地小農沙拉', '友善農業便當', '季節湯品', '低糖養生甜點'],
     logo: storeLogo('yunshui'),
-    photos: storePhotos('yunshui'),
+    photos: storePhotos('yunshui', 0),
   },
   {
     id: 'cura',
@@ -97,7 +99,7 @@ export const STORES_DATA: Store[] = [
     address: '台北市萬華區',
     specialties: ['九層塔蛤蜊披薩', '三杯杏鮑菇披薩', '麻油雞薄餅', '台式佐餐飲料', '創意前菜'],
     logo: storeLogo('cura'),
-    photos: storePhotos('cura'),
+    photos: storePhotos('cura', 5),
   },
   {
     id: 'zuozuo',
@@ -109,7 +111,7 @@ export const STORES_DATA: Store[] = [
     address: '台北市萬華區',
     specialties: ['精品單品咖啡', '手工司康', '艋舺特調茶飲', '在地食材輕食', '每日手工甜點'],
     logo: storeLogo('zuozuo'),
-    photos: storePhotos('zuozuo'),
+    photos: storePhotos('zuozuo', 0),
   },
   {
     id: 'shangguan',
@@ -121,7 +123,7 @@ export const STORES_DATA: Store[] = [
     address: '台北市萬華區',
     specialties: ['頂級和牛鍋', '龍蝦海鮮鍋', '招牌木桶高湯', '季節時蔬拼盤', '手工甜點'],
     logo: storeLogo('shangguan'),
-    photos: storePhotos('shangguan'),
+    photos: storePhotos('shangguan', 0),
   },
   {
     id: 'budian',
@@ -133,7 +135,7 @@ export const STORES_DATA: Store[] = [
     address: '台北市萬華區',
     specialties: ['老爐火花生糖', '芝麻糖', '古早味牛軋糖', '節慶禮盒', '特製手工糖片'],
     logo: storeLogo('budian'),
-    photos: storePhotos('budian'),
+    photos: storePhotos('budian', 0),
   },
   {
     id: 'yifeizi',
@@ -145,7 +147,7 @@ export const STORES_DATA: Store[] = [
     address: '台北市萬華區',
     specialties: ['家傳滷豆干', '滷海帶', '滷豬耳朵', '古早滷味拼盤', '滷蛋'],
     logo: storeLogo('yifeizi'),
-    photos: storePhotos('yifeizi'),
+    photos: storePhotos('yifeizi', 0),
   },
   {
     id: 'yixin',
@@ -157,7 +159,7 @@ export const STORES_DATA: Store[] = [
     address: '台北市萬華區',
     specialties: ['清燙鵝肉切盤', '薑蔥鵝肉飯', '鵝血湯', '台式熱炒', '鵝肉麵線'],
     logo: storeLogo('yixin'),
-    photos: storePhotos('yixin'),
+    photos: storePhotos('yixin', 0),
   },
   {
     id: 'jia-la',
@@ -169,7 +171,7 @@ export const STORES_DATA: Store[] = [
     address: '台北市萬華區',
     specialties: ['招牌麻辣鴨血', '麻辣豆腐', '麻辣毛肚', '特製麻辣湯', '川味小菜'],
     logo: storeLogo('jia-la'),
-    photos: storePhotos('jia-la'),
+    photos: storePhotos('jia-la', 4),
   },
   {
     id: 'weixing',
@@ -181,7 +183,7 @@ export const STORES_DATA: Store[] = [
     address: '台北市萬華區',
     specialties: ['戚風蛋糕', '台灣鮮乳生乳捲', '客製化造型蛋糕', '常溫無添加磅蛋糕', '每日限定甜點'],
     logo: storeLogo('weixing'),
-    photos: storePhotos('weixing'),
+    photos: storePhotos('weixing', 3),
   },
 ]
 
