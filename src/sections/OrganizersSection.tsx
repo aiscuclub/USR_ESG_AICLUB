@@ -21,12 +21,6 @@ const ORGANIZERS = [
       '東吳大學社會責任實踐計畫「艋舺商圈永續共創與數位加值」',
     ],
   },
-  {
-    type: '協辦單位',
-    color: 'border-secondary/20 bg-orange-50',
-    badge: 'bg-secondary/10 text-secondary',
-    orgs: ['東吳大學ESG永續發展研究中心', '東吳大學尤努斯社會企業中心'],
-  },
 ]
 
 export default function OrganizersSection() {
@@ -38,26 +32,26 @@ export default function OrganizersSection() {
             06 / 主辦單位
           </div>
           <AnimatedTitle
-            text="主辦與協辦單位"
-            highlight="協辦單位"
+            text="主辦與指導單位"
+            highlight="指導單位"
             highlightClass="text-primary"
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight"
           />
           <p className="mt-6 text-gray-500 max-w-xl mx-auto scroll-anim font-medium">
-            感謝各單位的支持與協助，共同推動艋舺商圈永續發展
+            感謝各單位的支持與指導，共同推動艋舺商圈永續發展
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
           {ORGANIZERS.map((org, i) => (
             <div key={org.type} className={`scroll-anim stagger-${i+1} p-7 rounded-3xl border-2 ${org.color}`}>
-              <span className={`inline-block text-xs font-black px-3 py-1.5 rounded-full mb-5 tracking-[0.2em] uppercase ${org.badge}`}>
+              <span className={`inline-block text-xs font-bold px-3 py-1.5 rounded-full mb-5 tracking-[0.2em] uppercase ${org.badge}`}>
                 {org.type}
               </span>
               <ul className="space-y-3">
                 {org.orgs.map((name) => (
                   <li key={name} className="flex items-start gap-3 text-gray-700 text-sm font-semibold leading-snug">
-                    <span className="text-primary mt-1 shrink-0 font-black">—</span>
+                    <span className="text-primary mt-1 shrink-0 font-bold">—</span>
                     {name}
                   </li>
                 ))}
@@ -73,23 +67,9 @@ export default function OrganizersSection() {
               如有任何問題，歡迎聯繫主辦單位
             </p>
             <div className="flex flex-col gap-3">
-              {/* AI Club Contact */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
-                <span className="text-gray-800 text-sm font-black tracking-wide">
-                  東吳大學人工智慧應用社
-                </span>
-                <span className="hidden sm:block text-gray-300">｜</span>
-                <a
-                  href="mailto:ai.scu.club@gmail.com"
-                  className="text-primary text-sm font-bold tracking-wide hover:underline"
-                >
-                  ai.scu.club@gmail.com
-                </a>
-              </div>
-              
               {/* Teacher Contact */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
-                <span className="text-gray-800 text-sm font-black tracking-wide">
+                <span className="text-gray-800 text-sm font-bold tracking-wide">
                   東吳大學尤努斯社會企業中心 葛俊佑主任
                 </span>
                 <span className="hidden sm:block text-gray-300">｜</span>

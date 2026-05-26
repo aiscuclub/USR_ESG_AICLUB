@@ -1,8 +1,6 @@
 import { BookOpen, Brain, Users, CalendarCheck } from 'lucide-react'
 import AnimatedTitle from '../components/AnimatedTitle'
 
-const WORKSHOP_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLScRj7oLo8hw0mZaUvSKSZssCIQl5dlWntH9i7nRYSGLbpviRA/viewform?usp=publish-editor'
-
 const FEATURES = [
   {
     icon: BookOpen,
@@ -41,7 +39,7 @@ export default function WorkshopSection() {
             text="增能工作坊"
             highlight="工作坊"
             highlightClass="text-primary"
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight"
           />
           <p className="mt-5 text-gray-500 max-w-xl mx-auto scroll-anim font-medium leading-relaxed">
             鼓勵沒有撰寫計畫書經驗的同學——有想法就來！
@@ -56,23 +54,22 @@ export default function WorkshopSection() {
             <div className="h-full flex flex-col justify-center p-8 rounded-3xl bg-primary text-white shadow-xl shadow-primary/25">
               <CalendarCheck className="w-10 h-10 mb-5 opacity-80" />
               <p className="text-white/60 text-xs tracking-[0.3em] uppercase font-bold mb-2">活動日期</p>
-              <p className="text-5xl font-black leading-tight mb-1">7/2</p>
-              <p className="text-white/75 font-semibold text-lg">說明會暨增能工作坊</p>
-              <p className="text-white/55 text-sm font-medium mt-3 leading-relaxed">
-                同步提供線上與實體參與方式，每組請推派一人報名。
+              <p className="text-5xl font-bold leading-tight mb-1">7/2</p>
+              <p className="text-white/80 font-bold text-lg">說明會暨增能工作坊</p>
+              
+              <p className="text-white/80 text-sm font-medium mt-4 leading-relaxed">
+                📅 形式：線上（Google Meet / Teams 直播）與線下同步進行，課程前半小時安排企劃書撰寫教學。
               </p>
 
-              <a
-                href={WORKSHOP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-flex items-center justify-center px-6 py-3.5
-                           bg-white text-primary font-black rounded-2xl
-                           hover:bg-gray-50 transition-all hover:scale-105
-                           shadow-md text-sm tracking-wide"
-              >
-                立即報名工作坊 →
-              </a>
+              <div className="mt-6 p-4 rounded-2xl bg-white/10 border border-white/15 text-white/95 text-sm font-medium leading-relaxed">
+                <span className="text-accent font-bold">🌟 競賽加分機制</span>
+                <p className="mt-1">報名參加工作坊者，將給予競賽加分！</p>
+              </div>
+
+              <div className="mt-6 flex gap-2 items-start text-white/75 text-xs leading-relaxed">
+                <span className="text-accent text-sm">📩</span>
+                <p>完成報名競賽或留下資料後，主辦方將透過 Email 寄送工作坊報名通知。</p>
+              </div>
             </div>
           </div>
 
@@ -86,7 +83,7 @@ export default function WorkshopSection() {
                     <Icon className={`w-5 h-5 ${f.color}`} />
                   </div>
                   <div>
-                    <h3 className="font-black text-gray-800 mb-1">{f.title}</h3>
+                    <h3 className="font-bold text-gray-800 mb-1">{f.title}</h3>
                     <p className="text-gray-600 text-sm font-medium leading-relaxed">{f.desc}</p>
                   </div>
                 </div>

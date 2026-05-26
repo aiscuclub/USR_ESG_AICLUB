@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, FileDown } from 'lucide-react'
+
+const DOWNLOAD_PDF_LINK = '#'
+const LEAVE_INFO_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLScRj7oLo8hw0mZaUvSKSZssCIQl5dlWntH9i7nRYSGLbpviRA/viewform?usp=header'
+const REGISTRATION_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSe0_Jry0jSMZXgxY_g9apOG52u-GoWVuzyz3V_uZ7-_oyy9hw/viewform?usp=publish-editor'
 
 const NAV_ITEMS = [
   { label: '首頁',     id: 'hero' },
@@ -9,7 +13,6 @@ const NAV_ITEMS = [
   { label: '合作店家', id: 'stores' },
   { label: '增能工作坊', id: 'workshop' },
   { label: '時程表',   id: 'timeline' },
-  { label: '立即報名', id: 'register', isButton: true },
 ]
 
 function scrollToSection(id: string) {
@@ -20,23 +23,14 @@ function scrollToSection(id: string) {
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled]     = useState(false)
-  const [collapsed, setCollapsed]   = useState(false)
-  const [lastY, setLastY]           = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
-      const y = window.scrollY
-      setScrolled(y > 10)
-      if (y > lastY && y > 200) {
-        setCollapsed(true)
-      } else {
-        setCollapsed(false)
-      }
-      setLastY(y)
+      setScrolled(window.scrollY > 10)
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [lastY])
+  }, [])
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
@@ -50,12 +44,8 @@ export default function Header() {
 
   return (
     <>
-      <header
-        className={`fixed top-0 w-full z-50 transition-all duration-400 ${
-          collapsed ? '-translate-y-[calc(100%+4px)]' : 'translate-y-0'
-        }`}
-      >
-        <div className="mx-3 mt-3 md:mx-auto md:max-w-6xl">
+      <header className="fixed top-0 w-full z-50 transition-all duration-300">
+        <div className="mx-3 mt-3 md:mx-auto md:max-w-7xl">
           <div
             className={`bg-white rounded-2xl transition-shadow duration-300 ${
               scrolled ? 'shadow-lg shadow-black/8' : 'shadow-md shadow-black/5'
@@ -69,33 +59,52 @@ export default function Header() {
               >
                 <img
                   src="/aiclubusrwebsite/logo.jpg"
-                  alt="艋舺ESG競賽"
-                  className="h-9 w-9 rounded-full object-cover"
+                  alt="永續消費體驗企劃書提案競賽"
+                  className="h-12 w-12 rounded-full object-cover border border-gray-100"
                 />
-                <span className="hidden sm:block text-sm font-bold text-gray-800 tracking-wide" style={{ fontFamily: 'var(--f-serif)' }}>
+                <span className="hidden md:block text-base font-bold text-gray-800 tracking-wide" style={{ fontFamily: 'var(--f-serif)' }}>
                   艋舺ESG競賽
                 </span>
               </button>
 
               {/* Desktop Nav */}
-              <nav className="hidden lg:flex items-center gap-1">
-                {NAV_ITEMS.filter(i => !i.isButton).map((item) => (
+              <nav className="hidden lg:flex items-center gap-1.5">
+                {NAV_ITEMS.map((item) => (
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item.id)}
-                    className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-primary
+                    className="px-3 py-2 text-base font-semibold text-gray-600 hover:text-primary
                                transition-colors rounded-xl hover:bg-primary/6 tracking-wide"
                   >
                     {item.label}
                   </button>
                 ))}
+                
+                {/* 下載簡章 */}
                 <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSe0_Jry0jSMZXgxY_g9apOG52u-GoWVuzyz3V_uZ7-_oyy9hw/viewform?usp=publish-editor"
+                  href={DOWNLOAD_PDF_LINK}
+                  className="ml-1 px-4 py-2 border border-gray-300 text-gray-700 hover:text-primary hover:border-primary text-base font-bold rounded-xl transition-all hover:scale-105 flex items-center gap-1"
+                >
+                  <FileDown className="w-4 h-4" />
+                  下載簡章
+                </a>
+
+                {/* 留下資料 */}
+                <a
+                  href={LEAVE_INFO_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="ml-2 px-5 py-2.5 bg-primary text-white text-sm font-bold rounded-xl
-                             hover:bg-primary-dark transition-all hover:scale-105
-                             shadow-sm shadow-primary/30 tracking-wide"
+                  className="px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white text-base font-bold rounded-xl transition-all hover:scale-105 shadow-sm shadow-emerald-500/20 tracking-wide"
+                >
+                  留下資料
+                </a>
+
+                {/* 立即報名 */}
+                <a
+                  href={REGISTRATION_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-primary text-white text-base font-bold rounded-xl hover:bg-primary-dark transition-all hover:scale-105 shadow-sm shadow-primary/20 tracking-wide"
                 >
                   立即報名
                 </a>
@@ -107,7 +116,7 @@ export default function Header() {
                 className="lg:hidden p-2 text-gray-700 hover:text-gray-900 transition-colors"
                 aria-label="開啟選單"
               >
-                <Menu className="w-5 h-5" />
+                <Menu className="w-6 h-6" />
               </button>
             </div>
           </div>
@@ -136,34 +145,68 @@ export default function Header() {
             <X className="w-6 h-6" />
           </button>
 
-          <div className="flex flex-col justify-center px-8 py-16 h-full">
-            <div className="mb-10 flex justify-center">
-              <img
-                src="/aiclubusrwebsite/logo.jpg"
-                alt="艋舺ESG競賽"
-                className="w-20 h-20 rounded-full object-cover shadow-lg"
-              />
+          <div className="flex flex-col px-6 py-12 min-h-full justify-between">
+            <div>
+              <div className="mb-6 flex justify-center">
+                <img
+                  src="/aiclubusrwebsite/logo.jpg"
+                  alt="永續消費體驗企劃書提案競賽"
+                  className="w-20 h-20 rounded-full object-cover shadow-lg"
+                />
+              </div>
+              <p className="text-center text-xs text-gray-500 mb-6 tracking-[0.2em] uppercase font-bold leading-relaxed px-4">
+                2026 艋舺永續消費體驗企劃書提案競賽
+              </p>
+              <nav className="space-y-1">
+                {NAV_ITEMS.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => handleNavClick(item.id)}
+                    className="w-full flex items-center justify-between px-5 py-3 rounded-xl
+                               text-left transition-all active:scale-[0.98] text-gray-800 hover:bg-gray-100 font-semibold"
+                  >
+                    <span className="text-base">{item.label}</span>
+                    <span className="text-gray-300 font-light">›</span>
+                  </button>
+                ))}
+              </nav>
             </div>
-            <p className="text-center text-xs text-gray-400 mb-8 tracking-[0.3em] uppercase font-semibold">
-              2026 艋舺商圈 ESG 永續消費競賽
-            </p>
-            <nav className="space-y-2">
-              {NAV_ITEMS.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item.isButton ? 'timeline' : item.id)}
-                  className={`w-full flex items-center justify-between px-6 py-4 rounded-2xl
-                              text-left transition-all active:scale-[0.98] ${
-                    item.isButton
-                      ? 'bg-primary text-white hover:bg-primary-dark font-black'
-                      : 'text-gray-800 hover:bg-gray-100 font-semibold'
-                  }`}
-                >
-                  <span className="text-lg">{item.label}</span>
-                  <span className="text-gray-300 font-light">›</span>
-                </button>
-              ))}
-            </nav>
+
+            <div className="mt-8 space-y-3">
+              {/* 下載簡章 */}
+              <a
+                href={DOWNLOAD_PDF_LINK}
+                className="w-full py-3 border border-gray-300 text-gray-700 font-bold rounded-xl
+                           flex items-center justify-center gap-2 hover:bg-gray-50 transition-all text-base"
+              >
+                <FileDown className="w-5 h-5 text-gray-500" />
+                下載簡章
+              </a>
+
+              {/* 留下資料 */}
+              <a
+                href={LEAVE_INFO_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 bg-emerald-500 text-white font-bold rounded-xl
+                           flex items-center justify-center gap-2 hover:bg-emerald-600 transition-all text-base
+                           shadow-md shadow-emerald-500/10 text-center"
+              >
+                留下資料
+              </a>
+
+              {/* 立即報名 */}
+              <a
+                href={REGISTRATION_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 bg-primary text-white font-bold rounded-xl
+                           flex items-center justify-center gap-2 hover:bg-primary-dark transition-all text-base
+                           shadow-md shadow-primary/10 text-center"
+              >
+                立即報名
+              </a>
+            </div>
           </div>
         </div>
       </div>

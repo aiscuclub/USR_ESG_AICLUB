@@ -7,11 +7,11 @@ export default function Footer() {
           <div className="flex items-center gap-4">
             <img
               src="/aiclubusrwebsite/logo.jpg"
-              alt="艋舺ESG競賽"
+              alt="永續消費體驗企劃書提案競賽"
               className="w-14 h-14 rounded-full object-cover opacity-90"
             />
             <div>
-              <p className="font-semibold text-white text-lg">艋舺商圈 ESG 永續消費競賽</p>
+              <p className="font-semibold text-white text-lg">艋舺永續消費體驗企劃書提案競賽</p>
               <p className="text-gray-400 text-sm mt-0.5">2026 企劃書提案競賽</p>
             </div>
           </div>

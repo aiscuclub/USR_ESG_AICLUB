@@ -1,12 +1,14 @@
 import { useEffect, useRef } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, FileDown } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useBackgroundSlider } from '../hooks/useBackgroundSlider'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const COMPETITION_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSe0_Jry0jSMZXgxY_g9apOG52u-GoWVuzyz3V_uZ7-_oyy9hw/viewform?usp=publish-editor'
+const DOWNLOAD_PDF_LINK = '#'
+const LEAVE_INFO_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLScRj7oLo8hw0mZaUvSKSZssCIQl5dlWntH9i7nRYSGLbpviRA/viewform?usp=header'
+const REGISTRATION_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSe0_Jry0jSMZXgxY_g9apOG52u-GoWVuzyz3V_uZ7-_oyy9hw/viewform?usp=publish-editor'
 
 function scrollToSection(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -126,21 +128,21 @@ export default function HeroSection() {
             className="text-white/50 text-[0.6rem] tracking-[0.3em] mb-2 animate-fade-in"
             style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards', fontFamily: 'var(--f-mono)' }}
           >
-            2026 競賽
+            2026 提案競賽
           </div>
 
           <h1
-            className="hero-text-shadow text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold
+            className="hero-text-shadow text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold
                        text-white tracking-tight leading-[1.15] mb-3 animate-fade-in-up"
             style={{ animationDelay: '0.4s', opacity: 0, animationFillMode: 'forwards', fontFamily: 'var(--f-serif)' }}
           >
-            艋舺商圈
+            艋舺永續消費
             <br />
             <span className="font-bold bg-gradient-to-r from-emerald-300 to-green-400 bg-clip-text text-transparent">
-              ESG 永續消費
+              體驗企劃書
             </span>
             <br />
-            體驗競賽
+            提案競賽
           </h1>
 
           <p
@@ -155,21 +157,37 @@ export default function HeroSection() {
         {/* CTA — single 立即報名 button only */}
         <div
           ref={btnRef}
-          className="mt-7 md:mt-8 flex flex-col sm:flex-row gap-3 items-center animate-fade-in-up"
+          className="mt-7 md:mt-8 flex flex-col sm:flex-row gap-3.5 items-center animate-fade-in-up"
           style={{ animationDelay: '0.8s', opacity: 0, animationFillMode: 'forwards' }}
         >
-          <button
-            onClick={() => scrollToSection('about')}
-            className="w-full sm:w-auto px-6 py-3 matte-glass-dark text-white rounded-2xl
-                       hover:bg-white/12 transition-all hover:scale-105 text-sm"
-          >
-            了解更多
-          </button>
+          {/* 下載簡章 */}
           <a
-            href={COMPETITION_LINK}
+            href={DOWNLOAD_PDF_LINK}
+            className="w-full sm:w-auto px-6 py-3.5 matte-glass-dark text-white border border-white/20 rounded-2xl
+                       hover:bg-white/12 hover:border-white/45 transition-all hover:scale-105 text-sm flex items-center justify-center gap-1.5"
+          >
+            <FileDown className="w-4 h-4 text-white/80" />
+            下載簡章
+          </a>
+
+          {/* 留下資料 */}
+          <a
+            href={LEAVE_INFO_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-7 py-3 bg-primary text-white font-bold rounded-2xl
+            className="w-full sm:w-auto px-7 py-3.5 bg-emerald-500 text-white font-bold rounded-2xl
+                       hover:bg-emerald-600 transition-all hover:scale-105
+                       shadow-lg shadow-emerald-500/30 text-sm tracking-wide text-center"
+          >
+            留下資料
+          </a>
+
+          {/* 立即報名 */}
+          <a
+            href={REGISTRATION_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto px-7 py-3.5 bg-primary text-white font-bold rounded-2xl
                        hover:bg-primary-dark transition-all hover:scale-105
                        shadow-lg shadow-primary/40 text-sm tracking-wide text-center"
           >
