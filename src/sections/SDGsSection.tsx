@@ -20,9 +20,6 @@ export default function SDGsSection() {
 
         {/* Header */}
         <div className="text-center mb-14">
-          <div className="section-label text-primary/60 text-xs tracking-[0.4em] uppercase scroll-anim mb-4">
-            Sustainable Development Goals
-          </div>
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 tracking-tight" style={{ fontFamily: 'var(--f-serif)' }}>
             聯合國永續發展目標
           </h2>
