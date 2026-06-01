@@ -15,9 +15,9 @@ export default function RulesSection() {
         {/* 副標題 */}
         <div className="flex items-center gap-3 mb-12 scroll-anim">
           <div className="h-px flex-1 bg-gray-200" />
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 tracking-tight px-2" style={{ fontFamily: 'var(--f-serif)' }}>
+          <h3 className="text-xl md:text-2xl font-bold text-gray-800 tracking-tight px-2" style={{ fontFamily: 'var(--f-serif)' }}>
             競賽辦法
-          </h2>
+          </h3>
           <div className="h-px flex-1 bg-gray-200" />
         </div>
 
