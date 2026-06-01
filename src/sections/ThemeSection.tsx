@@ -36,7 +36,7 @@ export default function ThemeSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="section-label text-primary/60 text-xs tracking-[0.15em] scroll-anim mb-4">
-            02 / 競賽主題
+            02
           </div>
           <AnimatedTitle
             text="競賽主題"

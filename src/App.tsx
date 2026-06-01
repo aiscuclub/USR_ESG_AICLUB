@@ -10,7 +10,6 @@ import StoresSection from './sections/StoresSection'
 import RulesSection from './sections/RulesSection'
 import WorkshopSection from './sections/WorkshopSection'
 import TimelineSection from './sections/TimelineSection'
-import OrganizersSection from './sections/OrganizersSection'
 import { useScrollAnimation } from './hooks/useScrollAnimation'
 import './index.css'
 
@@ -30,14 +29,13 @@ export default function App() {
       <main>
         <HeroSection />
         <AboutSection />
+        <RulesSection />
         <ThemeSection />
         <SDGsSection />       {/* 新增：SDGs 相關議題 */}
         <PrizesSection />     {/* 移至 Theme 之後 */}
         <StoresSection />
-        <RulesSection />
         <WorkshopSection />   {/* 新增：增能工作坊 */}
         <TimelineSection />
-        <OrganizersSection />
       </main>
       <Footer />
     </div>

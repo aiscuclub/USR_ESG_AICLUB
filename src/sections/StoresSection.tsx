@@ -266,7 +266,7 @@ export default function StoresSection() {
         <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
           <div className="section-label text-secondary/60 text-xs tracking-[0.4em] uppercase scroll-anim mb-4">
-            Partner Stores
+            04
           </div>
           <AnimatedTitle
             text="合作店家"

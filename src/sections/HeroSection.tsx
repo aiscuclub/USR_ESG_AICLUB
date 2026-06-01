@@ -132,10 +132,8 @@ export default function HeroSection() {
             艋舺永續消費體驗
             <br />
             <span className="font-bold bg-gradient-to-r from-emerald-300 to-green-400 bg-clip-text text-transparent">
-              企劃書提案
+              企劃書提案競賽
             </span>
-            <br />
-            競賽
           </h1>
 
           <p

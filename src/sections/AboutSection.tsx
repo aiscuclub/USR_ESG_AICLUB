@@ -37,7 +37,7 @@ export default function AboutSection() {
         {/* Header */}
         <div className="text-center mb-20">
           <div className="section-label text-primary/60 text-xs tracking-[0.15em] scroll-anim mb-4">
-            01 / 活動介紹
+            01
           </div>
           <AnimatedTitle
             text="活動介紹"
@@ -90,11 +90,10 @@ export default function AboutSection() {
               ].map((stat, i) => (
                 <div key={i} className="text-center p-4 rounded-2xl bg-white shadow-sm border border-gray-100">
                   {'topLabel' in stat ? (
-                    <>
-                      <p className="text-xs text-gray-500 font-bold tracking-wide" style={{ fontFamily: 'var(--f-mono)' }}>{stat.topLabel}</p>
-                      <p className="text-lg font-bold text-primary my-0.5" style={{ fontFamily: 'var(--f-serif)' }}>|</p>
-                      <p className="text-xs text-gray-500 font-bold tracking-wide" style={{ fontFamily: 'var(--f-mono)' }}>{stat.bottomLabel}</p>
-                    </>
+                    <div className="flex flex-col h-full justify-center gap-1.5 py-1">
+                      <p className="text-sm md:text-base font-bold text-primary" style={{ fontFamily: 'var(--f-serif)' }}>{stat.topLabel}</p>
+                      <p className="text-sm md:text-base font-bold text-primary" style={{ fontFamily: 'var(--f-serif)' }}>{stat.bottomLabel}</p>
+                    </div>
                   ) : (
                     <>
                       <p className="text-2xl font-bold text-primary" style={{ fontFamily: 'var(--f-serif)' }}>{stat.num}</p>
@@ -127,15 +126,7 @@ export default function AboutSection() {
 
         {/* 競賽主題 sub-section */}
         <div className="mb-16">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="h-px flex-1 bg-gray-200" />
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 tracking-tight px-2" style={{ fontFamily: 'var(--f-serif)' }}>
-              競賽主題
-            </h2>
-            <div className="h-px flex-1 bg-gray-200" />
-          </div>
-
-          <p className="text-gray-600 leading-relaxed mb-6 max-w-3xl">
+          <p className="text-gray-600 leading-relaxed mb-6 max-w-3xl text-center mx-auto">
             每隊參賽者需從「合作店家」名單中挑選一家店作為提案對象，針對該店設計完整行銷企劃案。企劃內容可涵蓋品牌再造、永續飲食、數位轉型、顧客體驗等方向，並提出具創意、可行性與ESG理念整合的具體方案，以書面企劃與簡報方式呈現。
           </p>
 

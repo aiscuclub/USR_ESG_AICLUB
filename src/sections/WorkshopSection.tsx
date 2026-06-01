@@ -33,7 +33,7 @@ export default function WorkshopSection() {
         {/* Header */}
         <div className="text-center mb-14">
           <div className="section-label text-primary/60 text-xs tracking-[0.4em] uppercase scroll-anim mb-4">
-            Workshop
+            05
           </div>
           <AnimatedTitle
             text="增能工作坊"
@@ -58,8 +58,13 @@ export default function WorkshopSection() {
               <p className="text-white/80 font-bold text-lg">說明會暨增能工作坊</p>
               
               <p className="text-white/80 text-sm font-medium mt-4 leading-relaxed">
-                📅 形式：線上（Google Meet / Teams 直播）與線下同步進行，課程前半小時安排企劃書撰寫教學。
+                📅 形式：線上（Google Meet / Teams 直播）與線下同步進行，課程包含企劃書撰寫教學與 AI 工具運用。
               </p>
+              <div className="mt-3 text-white/80 text-sm font-medium leading-relaxed">
+                📍 地點：東吳大學城中校區 5117 教室
+                <br />
+                🏢 地址：台北市中正區貴陽街一段56號
+              </div>
 
               <div className="mt-6 p-4 rounded-2xl bg-white/10 border border-white/15 text-white/95 text-sm font-medium leading-relaxed">
                 <span className="text-accent font-bold">🌟 競賽加分機制</span>

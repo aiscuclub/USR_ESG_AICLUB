@@ -23,12 +23,9 @@ export default function SDGsSection() {
           <div className="section-label text-primary/60 text-xs tracking-[0.4em] uppercase scroll-anim mb-4">
             Sustainable Development Goals
           </div>
-          <AnimatedTitle
-            text="相關議題"
-            highlight="議題"
-            highlightClass="text-primary"
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight"
-          />
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 tracking-tight" style={{ fontFamily: 'var(--f-serif)' }}>
+            相關議題
+          </h2>
           <p className="mt-5 text-gray-500 max-w-2xl mx-auto scroll-anim font-medium leading-relaxed">
             亦鼓勵參賽隊伍將提案方向與
             <strong className="text-primary font-black">聯合國永續發展目標 (SDGs)</strong>

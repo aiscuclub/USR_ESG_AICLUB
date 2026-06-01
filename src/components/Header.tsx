@@ -11,7 +11,7 @@ const NAV_ITEMS = [
   { label: '獎金資訊', id: 'prizes' },
   { label: '合作店家', id: 'stores' },
   { label: '增能工作坊', id: 'workshop' },
-  { label: '競賽流程',   id: 'timeline' },
+  { label: '重要時程',   id: 'timeline' },
 ]
 
 function scrollToSection(id: string) {
@@ -61,9 +61,9 @@ export default function Header() {
                   alt="永續消費體驗企劃書提案競賽"
                   className="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover border border-gray-100 shrink-0"
                 />
-                <span className="flex flex-col leading-tight" style={{ fontFamily: 'var(--f-serif)' }}>
-                  <span className="text-[0.65rem] font-bold text-gray-500 tracking-wider hidden sm:block">2026 艋舺ESG競賽</span>
-                  <span className="text-sm md:text-base font-bold text-gray-800 tracking-wide">艋舺永續消費體驗<br className="md:hidden" /><span className="hidden md:inline"> </span>企劃書提案競賽</span>
+                <span className="flex flex-col leading-tight text-left" style={{ fontFamily: 'var(--f-serif)' }}>
+                  <span className="text-xs md:text-sm font-bold text-gray-800 tracking-wide">艋舺永續消費體驗</span>
+                  <span className="text-[0.75rem] md:text-xs font-semibold text-gray-500 tracking-wide">企劃書提案競賽</span>
                 </span>
               </button>
 
@@ -97,7 +97,7 @@ export default function Header() {
                   rel="noopener noreferrer"
                   className="px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white text-base font-bold rounded-xl transition-all hover:scale-105 shadow-sm shadow-emerald-500/20 tracking-wide"
                 >
-                  留下資料－即時取得最新資訊
+                  留下資料
                 </a>
 
                 {/* 立即報名 */}
@@ -193,7 +193,7 @@ export default function Header() {
                            flex items-center justify-center gap-2 hover:bg-emerald-600 transition-all text-base
                            shadow-md shadow-emerald-500/10 text-center"
               >
-                留下資料－即時取得最新資訊
+                留下資料
               </a>
 
               {/* 立即報名 */}
