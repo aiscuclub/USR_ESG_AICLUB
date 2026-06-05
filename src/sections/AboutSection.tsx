@@ -37,7 +37,7 @@ export default function AboutSection() {
         {/* Header */}
         <div className="text-center mb-20">
           <div className="section-label text-primary/60 text-xs tracking-[0.15em] scroll-anim mb-4">
-            01
+            01 / ABOUT
           </div>
           <AnimatedTitle
             text="活動介紹"

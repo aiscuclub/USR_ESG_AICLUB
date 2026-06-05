@@ -17,7 +17,7 @@ export default function TimelineSection() {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-20">
           <div className="section-label text-primary/60 text-xs tracking-[0.15em] scroll-anim mb-4">
-            05
+            05 / TIMELINE
           </div>
           <AnimatedTitle
             text="競賽流程"

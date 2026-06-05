@@ -33,7 +33,7 @@ export default function WorkshopSection() {
         {/* Header */}
         <div className="text-center mb-14">
           <div className="section-label text-primary/60 text-xs tracking-[0.4em] uppercase scroll-anim mb-4">
-            04
+            04 / WORKSHOP
           </div>
           <AnimatedTitle
             text="增能工作坊"

@@ -7,8 +7,8 @@ import { useBackgroundSlider } from '../hooks/useBackgroundSlider'
 gsap.registerPlugin(ScrollTrigger)
 
 const DOWNLOAD_PDF_LINK = '/aiclubusrwebsite/簡章.pdf'
-const LEAVE_INFO_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLScRj7oLo8hw0mZaUvSKSZssCIQl5dlWntH9i7nRYSGLbpviRA/viewform?usp=header'
-const REGISTRATION_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSe0_Jry0jSMZXgxY_g9apOG52u-GoWVuzyz3V_uZ7-_oyy9hw/viewform?usp=publish-editor'
+const LEAVE_INFO_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSex6w7QHo3nrQQObKNm03gvcwPyUMrNgbIfAs2E4GJrkleryQ/viewform?usp=send_form'
+const REGISTRATION_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSex6w7QHo3nrQQObKNm03gvcwPyUMrNgbIfAs2E4GJrkleryQ/viewform'
 
 function scrollToSection(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })

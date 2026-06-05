@@ -16,7 +16,7 @@ export default function PrizesSection() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <div className="section-label text-white/35 text-xs tracking-[0.15em] scroll-anim mb-4">
-            02
+            02 / PRIZES
           </div>
           <AnimatedTitle
             text="獎金資訊"

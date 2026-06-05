@@ -131,7 +131,7 @@ function StoreModal({ store, onClose }: { store: Store; onClose: () => void }) {
                   const t = e.target as HTMLImageElement
                   t.style.display = 'none'
                   t.parentElement!.innerHTML =
-                    `<span class="text-2xl font-bold text-gray-300">${store.name[0]}</span>`
+                    `<span class="text-xs font-bold text-gray-400 tracking-wider">準備中</span>`
                 }}
               />
             </div>
@@ -169,7 +169,7 @@ function StoreModal({ store, onClose }: { store: Store; onClose: () => void }) {
           </div>
 
           {/* 招牌品項 */}
-          <div>
+          <div className="mb-5">
             <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
               招牌品項
             </h3>
@@ -184,6 +184,29 @@ function StoreModal({ store, onClose }: { store: Store; onClose: () => void }) {
               ))}
             </div>
           </div>
+
+          {/* 店家社群 / 網站連結 */}
+          {store.website && (
+            <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
+                相關連結 / 資訊
+              </h3>
+              {store.website.startsWith('http') ? (
+                <a
+                  href={store.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-secondary text-white text-xs font-bold rounded-xl hover:bg-secondary/90 transition-all hover:scale-105 shadow-sm shadow-secondary/15"
+                >
+                  前往官網 / 社群 →
+                </a>
+              ) : (
+                <span className="px-3 py-1.5 bg-gray-100 text-gray-700 text-xs font-bold rounded-xl border border-gray-200">
+                  {store.website}
+                </span>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -225,6 +248,7 @@ function StoreCard({ store, index, onClick }: { store: Store; index: number; onC
             onError={(e) => {
               const t = e.target as HTMLImageElement
               t.style.display = 'none'
+              if (t.parentElement) t.parentElement.style.display = 'none'
             }}
           />
         </div>
@@ -266,7 +290,7 @@ export default function StoresSection() {
         <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
           <div className="section-label text-secondary/60 text-xs tracking-[0.4em] uppercase scroll-anim mb-4">
-            03
+            03 / STORES
           </div>
           <AnimatedTitle
             text="合作店家"
