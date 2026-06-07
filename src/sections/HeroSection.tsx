@@ -6,7 +6,7 @@ import { useBackgroundSlider } from '../hooks/useBackgroundSlider'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const DOWNLOAD_PDF_LINK = '/USR_ESG_AICLUB/簡章.pdf'
+const DOWNLOAD_PDF_LINK = './簡章.pdf'
 const LEAVE_INFO_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLScL4Y0SeSIuw9gIUXnoXc_d8FNRuHpxcT_oM8xUHQSKPttTwQ/viewform'
 const REGISTRATION_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSex6w7QHo3nrQQObKNm03gvcwPyUMrNgbIfAs2E4GJrkleryQ/viewform'
 

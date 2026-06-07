@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react'
 import { Menu, X, FileDown } from 'lucide-react'
 
-const DOWNLOAD_PDF_LINK = '/USR_ESG_AICLUB/簡章.pdf'
+const DOWNLOAD_PDF_LINK = './簡章.pdf'
 const LEAVE_INFO_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLScL4Y0SeSIuw9gIUXnoXc_d8FNRuHpxcT_oM8xUHQSKPttTwQ/viewform'
 const REGISTRATION_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSex6w7QHo3nrQQObKNm03gvcwPyUMrNgbIfAs2E4GJrkleryQ/viewform'
 
 const NAV_ITEMS = [
-  { label: '首頁',     id: 'hero' },
+  { label: '首頁', id: 'hero' },
   { label: '活動介紹', id: 'about' },
   { label: '獎金資訊', id: 'prizes' },
   { label: '合作店家', id: 'stores' },
   { label: '增能工作坊', id: 'workshop' },
-  { label: '競賽流程',   id: 'timeline' },
+  { label: '競賽流程', id: 'timeline' },
 ]
 
 function scrollToSection(id: string) {
@@ -21,7 +21,7 @@ function scrollToSection(id: string) {
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [scrolled, setScrolled]     = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,9 +46,8 @@ export default function Header() {
       <header className="fixed top-0 w-full z-50 transition-all duration-300">
         <div className="mx-3 mt-3 md:mx-auto md:max-w-7xl">
           <div
-            className={`bg-white rounded-2xl transition-shadow duration-300 ${
-              scrolled ? 'shadow-lg shadow-black/8' : 'shadow-md shadow-black/5'
-            }`}
+            className={`bg-white rounded-2xl transition-shadow duration-300 ${scrolled ? 'shadow-lg shadow-black/8' : 'shadow-md shadow-black/5'
+              }`}
           >
             <div className="px-5 h-16 flex items-center justify-between">
               {/* Logo */}
@@ -80,7 +79,7 @@ export default function Header() {
                     {item.label}
                   </button>
                 ))}
-                
+
                 {/* 下載簡章 */}
                 <a
                   href={DOWNLOAD_PDF_LINK}
@@ -126,18 +125,16 @@ export default function Header() {
 
       {/* Mobile Full-Screen Menu */}
       <div
-        className={`fixed inset-0 z-[100] lg:hidden transition-all duration-300 ${
-          mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
+        className={`fixed inset-0 z-[100] lg:hidden transition-all duration-300 ${mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
       >
         <div
           className="absolute inset-0 bg-black/40 backdrop-blur-sm"
           onClick={() => setMobileOpen(false)}
         />
         <div
-          className={`absolute inset-3 bg-white rounded-3xl shadow-2xl transition-all duration-300 overflow-auto ${
-            mobileOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
-          }`}
+          className={`absolute inset-3 bg-white rounded-3xl shadow-2xl transition-all duration-300 overflow-auto ${mobileOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
+            }`}
         >
           <button
             onClick={() => setMobileOpen(false)}
