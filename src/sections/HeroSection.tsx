@@ -113,7 +113,7 @@ export default function HeroSection() {
           <div className="relative">
             <div className="absolute inset-0 rounded-full bg-white/10 blur-2xl scale-150" />
             <img
-              src="/aiclubusrwebsite/logo.jpg"
+              src="/USR_ESG_AICLUB/logo.jpg"
               alt="艋舺ESG競賽 Logo"
               className="relative w-20 h-20 md:w-28 md:h-28 rounded-full object-cover
                          shadow-2xl border-[3px] border-white/30 mx-auto animate-scale-in"

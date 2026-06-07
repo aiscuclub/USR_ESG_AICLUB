@@ -57,7 +57,7 @@ export default function Header() {
                 className="flex items-center gap-2.5 hover:opacity-75 transition-opacity"
               >
                 <img
-                  src="/aiclubusrwebsite/logo.jpg"
+                  src="/USR_ESG_AICLUB/logo.jpg"
                   alt="永續消費體驗企劃書提案競賽"
                   className="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover border border-gray-100 shrink-0"
                 />
@@ -150,7 +150,7 @@ export default function Header() {
             <div>
               <div className="mb-6 flex justify-center">
                 <img
-                  src="/aiclubusrwebsite/logo.jpg"
+                  src="/USR_ESG_AICLUB/logo.jpg"
                   alt="永續消費體驗企劃書提案競賽"
                   className="w-20 h-20 rounded-full object-cover shadow-lg"
                 />

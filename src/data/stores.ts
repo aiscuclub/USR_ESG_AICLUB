@@ -28,8 +28,8 @@ export interface Store {
   website?: string
 }
 
-const BASE = '/aiclubusrwebsite/images/stores'
-const PLACEHOLDER = '/aiclubusrwebsite/images/placeholder-store.jpg'
+const BASE = '/USR_ESG_AICLUB/images/stores'
+const PLACEHOLDER = '/USR_ESG_AICLUB/images/placeholder-store.jpg'
 
 function storePhotos(id: string, count: number = 5): string[] {
   if (count === 0) return []

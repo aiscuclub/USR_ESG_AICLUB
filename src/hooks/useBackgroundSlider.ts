@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from 'react'
 
 const IMAGES = [
-  '/aiclubusrwebsite/images/hero-1.jpg',
-  '/aiclubusrwebsite/images/hero-2.jpg',
-  '/aiclubusrwebsite/images/hero-3.jpg',
+  '/USR_ESG_AICLUB/images/hero-1.jpg',
+  '/USR_ESG_AICLUB/images/hero-2.jpg',
+  '/USR_ESG_AICLUB/images/hero-3.jpg',
 ]
 
 const INTERVAL = 5000

@@ -56,7 +56,7 @@ export default function AboutSection() {
           <div className="scroll-anim">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
               <img
-                src="/aiclubusrwebsite/images/hero-1.jpg"
+                src="/USR_ESG_AICLUB/images/hero-1.jpg"
                 alt="萬華商圈"
                 className="w-full h-full object-cover"
               />

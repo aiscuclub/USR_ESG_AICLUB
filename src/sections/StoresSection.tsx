@@ -3,7 +3,7 @@ import { X, MapPin, ChevronLeft, ChevronRight } from 'lucide-react'
 import { STORES_DATA, CATEGORY_COLORS, type Store } from '../data/stores'
 import AnimatedTitle from '../components/AnimatedTitle'
 
-const PLACEHOLDER = '/aiclubusrwebsite/images/placeholder-store.jpg'
+const PLACEHOLDER = '/USR_ESG_AICLUB/images/placeholder-store.jpg'
 
 // ── 照片輪播元件 ──────────────────────────────────────────
 function PhotoCarousel({ photos, name }: { photos: string[]; name: string }) {
