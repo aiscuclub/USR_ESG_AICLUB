@@ -31,14 +31,60 @@ export interface Store {
 const BASE = '/USR_ESG_AICLUB/images/stores'
 const PLACEHOLDER = '/USR_ESG_AICLUB/images/placeholder-store.jpg'
 
+// 動態讀取 public/images/stores 下的所有圖片檔案
+const storeAssets = import.meta.glob('/public/images/stores/**/*.{jpg,jpeg,png,webp,gif,svg,JPG,JPEG,PNG,WEBP,GIF,SVG}', {
+  eager: true,
+  import: 'default'
+}) as Record<string, string>
+
+interface StoreFiles {
+  logo: string
+  photos: string[]
+}
+
+const groupedStores: Record<string, StoreFiles> = {}
+
+// 解析並分組圖片
+Object.entries(storeAssets).forEach(([filePath, resolvedUrl]) => {
+  // filePath 格式："/public/images/stores/zhongyi/logo.jpg"
+  const parts = filePath.split('/')
+  const storeId = parts[4]
+  const fileName = parts[5]
+
+  if (!storeId || !fileName) return
+
+  if (!groupedStores[storeId]) {
+    groupedStores[storeId] = { logo: '', photos: [] }
+  }
+
+  const lowerName = fileName.toLowerCase()
+  if (lowerName.startsWith('logo.')) {
+    groupedStores[storeId].logo = resolvedUrl
+  } else {
+    groupedStores[storeId].photos.push(resolvedUrl)
+  }
+})
+
+// 排序各店家的照片，確保順序正確（依檔名排序）
+Object.keys(groupedStores).forEach((storeId) => {
+  groupedStores[storeId].photos.sort((a, b) => {
+    // 從解析後的網址中提取檔名進行排序比較
+    const nameA = a.split('/').pop() || ''
+    const nameB = b.split('/').pop() || ''
+    return nameA.localeCompare(nameB, undefined, { numeric: true, sensitivity: 'base' })
+  })
+})
+
 function storePhotos(id: string, count: number = 5): string[] {
+  if (groupedStores[id] && groupedStores[id].photos.length > 0) {
+    return groupedStores[id].photos
+  }
   if (count === 0) return []
   return Array.from({ length: count }, (_, i) => `${BASE}/${id}/photo-${i + 1}.jpg`)
 }
 
-
 function storeLogo(id: string): string {
-  return `${BASE}/${id}/logo.jpg`
+  return groupedStores[id]?.logo || `${BASE}/${id}/logo.jpg`
 }
 
 export const STORES_DATA: Store[] = [
@@ -77,7 +123,7 @@ export const STORES_DATA: Store[] = [
       '二和珍傳統餅鋪是萬華地區知名的傳統漢餅老舖，傳承數代的手工技藝，以純天然食材製作各式傳統糕餅。舉凡囍餅、鳳梨酥、綠豆糕等皆為拿手品項，是許多萬華家庭辦理婚喪喜慶的首選，也是延續在地飲食文化記憶的重要場所。',
     address: '台北市萬華區康定路308號',
     specialties: ['傳統漢餅', '手工鳳梨酥', '綠豆糕', '喜餅禮盒', '中秋月餅'],
-    logo: `${BASE}/erhe/logo.webp`,
+    logo: storeLogo('erhe'),
     photos: storePhotos('erhe', 3),
   },
   {

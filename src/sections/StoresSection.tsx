@@ -21,11 +21,17 @@ function PhotoCarousel({ photos, name }: { photos: string[]; name: string }) {
   // 如果只有 1 張照片，顯示單張照片（無互動按鈕）
   if (photos.length === 1) {
     return (
-      <div className="relative w-full aspect-video bg-gray-100 rounded-2xl overflow-hidden select-none">
+      <div className="relative w-full aspect-video bg-gray-950 rounded-2xl overflow-hidden select-none flex items-center justify-center">
+        {/* 模糊背景圖 */}
+        <img
+          src={photos[0]}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover blur-xl opacity-50 scale-105 pointer-events-none"
+        />
         <img
           src={photos[0]}
           alt={`${name} 照片`}
-          className="w-full h-full object-cover"
+          className="relative w-full h-full object-contain z-10"
           onError={(e) => { (e.target as HTMLImageElement).src = PLACEHOLDER }}
         />
       </div>
@@ -36,11 +42,17 @@ function PhotoCarousel({ photos, name }: { photos: string[]; name: string }) {
   const next = () => setIdx((i) => (i + 1) % photos.length)
 
   return (
-    <div className="relative w-full aspect-video bg-gray-100 rounded-2xl overflow-hidden select-none group">
+    <div className="relative w-full aspect-video bg-gray-950 rounded-2xl overflow-hidden select-none group flex items-center justify-center">
+      {/* 模糊背景圖 */}
+      <img
+        src={photos[idx]}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover blur-xl opacity-50 scale-105 pointer-events-none"
+      />
       <img
         src={photos[idx]}
         alt={`${name} 照片 ${idx + 1}`}
-        className="w-full h-full object-cover transition-opacity duration-300"
+        className="relative w-full h-full object-contain transition-opacity duration-300 z-10"
         onError={(e) => { (e.target as HTMLImageElement).src = PLACEHOLDER }}
       />
 
@@ -49,7 +61,7 @@ function PhotoCarousel({ photos, name }: { photos: string[]; name: string }) {
         onClick={prev}
         className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full
                    bg-black/40 text-white opacity-0 group-hover:opacity-100
-                   transition-opacity hover:bg-black/60"
+                   transition-opacity hover:bg-black/60 z-20"
       >
         <ChevronLeft className="w-5 h-5" />
       </button>
@@ -57,13 +69,13 @@ function PhotoCarousel({ photos, name }: { photos: string[]; name: string }) {
         onClick={next}
         className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full
                    bg-black/40 text-white opacity-0 group-hover:opacity-100
-                   transition-opacity hover:bg-black/60"
+                   transition-opacity hover:bg-black/60 z-20"
       >
         <ChevronRight className="w-5 h-5" />
       </button>
 
       {/* 圓點指示器 */}
-      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
         {photos.map((_, i) => (
           <button
             key={i}
@@ -77,7 +89,7 @@ function PhotoCarousel({ photos, name }: { photos: string[]; name: string }) {
 
       {/* 照片計數 */}
       <div className="absolute top-3 right-3 px-2 py-0.5 bg-black/40 rounded-full
-                      text-white text-xs font-medium">
+                      text-white text-xs font-medium z-20">
         {idx + 1} / {photos.length}
       </div>
     </div>
@@ -225,22 +237,30 @@ function StoreCard({ store, index, onClick }: { store: Store; index: number; onC
                   overflow-hidden group focus:outline-none focus:ring-2 focus:ring-primary/40`}
     >
       {/* 縮圖 */}
-      <div className="relative aspect-video bg-gray-100 overflow-hidden">
+      <div className="relative aspect-video bg-gray-950 overflow-hidden flex items-center justify-center">
         {store.photos && store.photos.length > 0 ? (
-          <img
-            src={store.photos[0]}
-            alt={store.name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            onError={(e) => { (e.target as HTMLImageElement).src = PLACEHOLDER }}
-          />
+          <>
+            {/* 模糊背景圖 */}
+            <img
+              src={store.photos[0]}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover blur-lg opacity-50 scale-105 pointer-events-none"
+            />
+            <img
+              src={store.photos[0]}
+              alt={store.name}
+              className="relative w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 z-10"
+              onError={(e) => { (e.target as HTMLImageElement).src = PLACEHOLDER }}
+            />
+          </>
         ) : (
-          <div className="w-full h-full bg-gray-100/90 flex flex-col items-center justify-center select-none">
+          <div className="w-full h-full bg-gray-100/90 flex flex-col items-center justify-center select-none z-10">
             <span className="text-sm font-semibold tracking-widest text-gray-400">準備中</span>
           </div>
         )}
         {/* Logo 角標 */}
         <div className="absolute bottom-2 left-2 w-9 h-9 rounded-xl overflow-hidden
-                        border-2 border-white shadow-md bg-white">
+                        border-2 border-white shadow-md bg-white z-20">
           <img
             src={store.logo}
             alt=""
@@ -254,7 +274,7 @@ function StoreCard({ store, index, onClick }: { store: Store; index: number; onC
         </div>
         {/* 序號 */}
         <div className="absolute top-2 right-2 w-7 h-7 rounded-full bg-black/40 text-white
-                        text-xs font-semibold flex items-center justify-center">
+                        text-xs font-semibold flex items-center justify-center z-20">
           {String(index + 1).padStart(2, '0')}
         </div>
       </div>
