@@ -32,7 +32,7 @@ export default function PrizesSection() {
               🏆 總獎金 NT$ 55,000 元
             </span>
             <span className="px-4.5 py-2.5 rounded-2xl bg-white/10 text-white border border-white/10 text-sm font-bold">
-              👥 參賽人數 2-4 人 / 隊
+              👥 參賽人數 2-5 人 / 隊
             </span>
             <span className="px-4.5 py-2.5 rounded-2xl bg-white/10 text-white border border-white/10 text-sm font-bold">
               🥇 最高金獎 NT$ 20,000 元

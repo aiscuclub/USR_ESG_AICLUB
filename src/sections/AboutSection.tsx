@@ -84,7 +84,7 @@ export default function AboutSection() {
             <div className="grid grid-cols-2 gap-3 pt-4">
               {[
                 { topLabel: '高中職組', bottomLabel: '大專院校組', icon: '🏫' },
-                { num: '2–4', label: '參賽人數/隊' },
+                { num: '2–5', label: '參賽人數/隊' },
                 { num: '20,000', label: '最高金獎（元）' },
                 { num: '55,000', label: '總獎金（元）' },
               ].map((stat, i) => (

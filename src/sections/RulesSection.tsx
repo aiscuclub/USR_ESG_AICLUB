@@ -29,7 +29,7 @@ export default function RulesSection() {
               <h3 className="text-xl font-black text-primary">參賽資格</h3>
             </div>
             <ul className="space-y-3 text-gray-700 font-medium">
-              {['全國大專院校及高中學生（含當年畢業者）','可跨校、跨系組隊參加','每隊 2 至 4 人','需邀請一位指導老師提供專業輔導'].map((item) => (
+              {['全國大專院校及高中學生（含當年畢業者）','可跨校、跨系組隊參加','每隊 2 至 5 人','需邀請一位指導老師提供專業輔導'].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <span className="text-primary font-black mt-0.5 shrink-0">—</span>{item}
                 </li>
