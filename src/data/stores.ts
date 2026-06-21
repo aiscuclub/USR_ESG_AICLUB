@@ -129,12 +129,12 @@ export const STORES_DATA: Store[] = [
   {
     id: 'yunshui',
     name: '雲水食堂',
-    category: '健康料理',
-    tags: ['健康飲食', '蔬食', '輕食'],
+    category: '家的味道', // 從 '健康料理' 改為 '家的味道'
+    tags: ['頂級食材', '牛肉麵', '健康飲食', '家常滋味'], // 更新標籤
     description:
       '榮獲2025台北國際牛肉麵節金牌獎，承襲父親手藝，嚴選頂級牛腱心，以牛骨與自製牛油慢火熬湯，湯頭清爽醇厚。手工麵條不含防腐劑，自製小菜，呈現湯頭溫潤與牛腱心醇香軟嫩。用心守護「家的味道」，傳遞萬華人情味。',
     address: '台北市萬華區',
-    specialties: ['時令蔬食定食', '在地小農沙拉', '友善農業便當', '季節湯品', '低糖養生甜點'],
+    specialties: ['紅燒牛肉麵', '金牌牛肉麵'], // 更新招牌品項
     logo: storeLogo('yunshui'),
     photos: storePhotos('yunshui', 6),
   },
@@ -232,7 +232,7 @@ export const STORES_DATA: Store[] = [
     description:
       '唯星是一家隱身於萬華巷弄的甜點店， 我們專注於製作融合台灣在地食材的法式蛋糕， 用一塊塊甜點，傳遞土地的滋味與生活的溫度。從布列塔尼的酥香出發， 我們加入台灣的山珍海味：烏魚子、櫻花蝦，讓法式酥餅多了一份在地的風土與深度。我們也擅長以台灣水果入味， 草莓、芒果、鳳梨、蘋果，每一種果香， 都被製作成布列塔尼蛋糕與達克瓦茲， 成為旅人心中最幸福的記憶。 此外，我們將台灣茶的細緻香氣融入沙布蕾餅乾， 四季春、紅烏龍、金萱、紅茶， 茶香在餅乾中緩緩釋放，成為日常最溫柔的陪伴。我們相信，甜點不只是味覺的享受， 更是情感的載體，是能在心裡留下風景的味道。邀您在萬華老城探險， 對著唯星許願：布列塔尼不遠， 一塊蛋糕，就能讓夢想與味蕾連線。',
     address: '台北市萬華區',
-    specialties: ['戚風蛋糕', '台灣鮮乳生乳捲', '客製化造型蛋糕', '常溫無添加磅蛋糕', '每日限定甜點'],
+    specialties: ['達克瓦茲', '布列塔尼', '台灣鮮乳生乳捲', '客製化造型蛋糕', '常溫無添加磅蛋糕', '每日限定甜點'], // 替換掉 戚風蛋糕
     logo: storeLogo('weixing'),
     photos: storePhotos('weixing', 3),
     website: 'https://www.starwaycake.com',
@@ -240,6 +240,7 @@ export const STORES_DATA: Store[] = [
 ]
 
 export const CATEGORY_COLORS: Record<string, string> = {
+  '家的味道': 'bg-green-100 text-green-700', // 新增這一行
   '傳統美食': 'bg-orange-100 text-orange-700',
   '在地小吃': 'bg-red-100 text-red-700',
   '傳統糕點': 'bg-yellow-100 text-yellow-800',
