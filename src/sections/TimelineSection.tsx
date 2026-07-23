@@ -1,6 +1,6 @@
 import AnimatedTitle from '../components/AnimatedTitle'
 
-const REGISTRATION_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSe0_Jry0jSMZXgxY_g9apOG52u-GoWVuzyz3V_uZ7-_oyy9hw/viewform?usp=publish-editor'
+const REGISTRATION_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSex6w7QHo3nrQQObKNm03gvcwPyUMrNgbIfAs2E4GJrkleryQ/viewform'
 
 const MILESTONES = [
   { date: '即日起', label: '開放報名', desc: '競賽正式開放報名，請盡早組隊', active: true },
