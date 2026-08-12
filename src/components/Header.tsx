@@ -7,6 +7,7 @@ const REGISTRATION_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSex6w7QHo3nr
 
 const NAV_ITEMS = [
   { label: '首頁', id: 'hero' },
+  { label: '決賽名單', id: 'finalists' },
   { label: '活動介紹', id: 'about' },
   { label: '獎金資訊', id: 'prizes' },
   { label: '合作店家', id: 'stores' },
