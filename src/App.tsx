@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import HeroSection from './sections/HeroSection'
+import AwardsSection from './sections/AwardsSection'
 import FinalistsSection from './sections/FinalistsSection'
 import AboutSection from './sections/AboutSection'
 import SDGsSection from './sections/SDGsSection'
@@ -29,6 +30,7 @@ export default function App() {
       <Header />
       <main>
         <HeroSection />
+        <AwardsSection />     {/* 新增：決賽暨特別獎得獎名單公告 */}
         <FinalistsSection />  {/* 新增：決賽入選名單公告 */}
         <AboutSection />
         <RulesSection />
